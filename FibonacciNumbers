@@ -1,0 +1,18 @@
+class FibonacciNumbers {
+  // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34
+  public static int nthNumber(int n) {
+    int[] numbers = new int[n];
+    numbers[0] = 0;
+    numbers[1] = 1;
+    return nthNumber(numbers, 2, n);
+  }
+  
+  private static int nthNumber(int[] nbrs, int reach, int n) {
+    if (reach < n) {
+      nbrs[reach] = nbrs[reach - 1] + nbrs[reach - 2];
+      return nthNumber(nbrs, reach + 1, n);
+    } else {
+      return nbrs[reach - 1];
+    }
+  }
+}
