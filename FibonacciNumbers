@@ -17,4 +17,24 @@ class FibonacciNumbers {
       return nbrs[reach - 1];
     }
   }
+  
+  public static void printFibonachiBackwards(int n) {
+    int[] ar = new int[n];
+    printFibonachiBackwards(ar, 0, n);
+  }
+  
+  private static void printFibonachiBackwards(int[] ar, int reach, int n) {
+    if (reach < n) {
+      int val = 0;
+      if (reach == 1) {
+        val = 1;
+      } else if (reach > 1) {
+        val = ar[reach - 1] + ar[reach - 2];
+      }
+      ar[reach] = val;
+      
+      printFibonachiBackwards(ar, reach + 1, n);
+      System.out.print(ar[reach] + " ");
+    }
+  }
 }
